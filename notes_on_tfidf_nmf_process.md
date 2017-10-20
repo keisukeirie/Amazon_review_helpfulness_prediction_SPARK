@@ -27,7 +27,7 @@ the regextokenizer uses Java regular expression to make some restriction when to
 For example, if you want to take out non-word character, set pattern = \\W+.  
 There are many way to set this restriction but I am not the regex expert so please google regular expression for java.  
   
-###StopWordsRemover
+### StopWordsRemover
 This function will apply stopwords to your tokenized word list.  
 You can:
 1. set your own custom stopwords and assign it by adjusting parameter called stopWords.  
