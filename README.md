@@ -64,7 +64,7 @@ Video Game Product reviews:
 
 |               |   Original ver.   |   Pyspark ver.   |
 | ------------- |:-----------------:| ----------------:|
-| data cleaning |    00:06:12:38    |   00:13:20:46    |
+| data cleaning |    00:06:12:38    |   00:10:39:36    |
 |   TFIDF+NMF   |    00:00:00:00    |   00:00:00:00    |
 | Random Forest |    00:00:00:00    |   00:00:00:00    |
 
