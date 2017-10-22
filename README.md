@@ -32,6 +32,8 @@ notes_on_EMR.md (in the future)
 
 ## CHANGE MADE FROM THE PREVIOUS VERSION:
 
+#### data samples with no Rank_Values and no Price:
+
 #### Rank_Value imputation:
 For the Rank_Value feature, null values were replaced with average value.  
 Because the Rank_Value feature represents the rank of products, I figure it will not be realistic to impute it with the average value.  
@@ -57,9 +59,12 @@ With these change, I can make train-test split after running my data cleaning pr
 - Ran the original ver. in my laptop (MacBookPro 2015)  
 - Ran the pyspark ver. with 4 CPU in my laptop  
 
+Video Game Product reviews:  
+(data cleaning reduce samples to about 4300 samples)  
+
 |               |   Original ver.   |   Pyspark ver.   |
 | ------------- |:-----------------:| ----------------:|
-| data cleaning |    00:00:00:00    |   00:00:00:00    |
+| data cleaning |    00:06:12:38    |   00:13:20:46    |
 |   TFIDF+NMF   |    00:00:00:00    |   00:00:00:00    |
 | Random Forest |    00:00:00:00    |   00:00:00:00    |
 
