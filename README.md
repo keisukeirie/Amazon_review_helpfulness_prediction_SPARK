@@ -53,6 +53,16 @@ What I end up doing was that I replaced pruce values into categorical values.
 With these change, I can make train-test split after running my data cleaning process.  
   
 ## RESULTS:
+### Computation time:
+- Ran the original ver. in my laptop (MacBookPro 2015)  
+- Ran the pyspark ver. with 4 CPU in my laptop  
+
+|               |   Original ver.   |   Pyspark ver.   |
+| ------------- |:-----------------:| ----------------:|
+| data cleaning |    00:00:00:00    |   00:00:00:00    |
+|   TFIDF+NMF   |    00:00:00:00    |   00:00:00:00    |
+| Random Forest |    00:00:00:00    |   00:00:00:00    |
+
 
 ## CONCLUSION:
 
