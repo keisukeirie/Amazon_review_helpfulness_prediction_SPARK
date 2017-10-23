@@ -59,14 +59,39 @@ With these change, I can make train-test split after running my data cleaning pr
 **Video Game Product reviews:**    
 - Ran the original ver. in my laptop (MacBookPro 2015)  
 - Ran the pyspark ver. with 4 CPU in my laptop  
-(data cleaning reduce samples to about 4,300 samples)  
+(data cleaning reduce samples to about 4,300 samples) 
+training: 2800 samples, test: 636 samples   
   
 |               |   Original ver.   |   Pyspark ver.   |
 | ------------- |:-----------------:| ----------------:|
 | data cleaning |    00:06:12:38    |   00:10:39:36    |
-|   TFIDF+NMF   |    00:00:00:00    |   00:00:00:00    |
-| Random Forest |    00:00:00:00    |   00:00:00:00    |
-|    Total      |    00:06:12:38    |   00:00:00:00    |
+|   TFIDF+NMF   |    00:04:46:44    |   00:00:00:00    |
+| Random Forest |    00:00:22:00    |   00:00:00:00    |
+|    Total      |    00:11:20:82    |   00:00:00:00    |
+
+#### Original Ver result:
+
+ **TOP10 Important Features**   
+enjoy : 0.907305699071%  
+percent_GROUP_4 : 0.960251319721%  
+sort : 1.10448132333%  
+die : 1.12857298946%  
+surprise : 1.22353217363%  
+price : 1.42303649998%  
+gamecube : 1.61354571494%  
+rank_values : 3.45245920816%  
+text_length : 6.00004820027%  
+overall : 8.50613117299%  
+
+
+ |                      | NOT HELPFUL TRUE | HIGHLY HELPFUL TRUE |
+ | -------------------- |:----------------:| -------------------:|
+ |   NOT HELPFUL PRED   |      205.0       |         50.0        |
+ | HIGHLY HELPFUL PRED  |       37.0       |        344.0        |
+
+LOW prediction rate: 84.71%
+HIGH prediction rate: 87.31%
+
 
 **Homeandkitchen Product reviews:**
 - Ran the original ver. with AWS EC2 instance (m4.2xlarge)
