@@ -19,7 +19,18 @@ I want to test if Spark would help reduce computation time for data cleaning pro
 1. categories with more than 50 products  
   - 'Toys & Games', 'Video Games', 'Electronics', 'Software'  
 2. reviews with more than 100 total votes  
+3. After adjusting null values for price feature, remove samples that contained nulls for both price AND rank_values.  
+  - the process is done with NAND bitwise operator: df.where(~((df.price_unknown == 1) & (df.rank_values == max_rank_value)))  
   
-dataframe size: 4739 data samples, 111 features for pyspark ver. model.
+dataframe size: 4234 data samples, 111 features for pyspark ver. model.
   
+### number of features:
+for some reason, number of features were 111 for the pyspark editon and 85 for the original.  
+there were around 20 category features that were not captured in the original ver. I really don't know why.  
+
+### computation time for data cleaning:  
+the original ver. around **6 minutes**.  
+the pyspark ver. around **10 minutes**.  
+  
+a bit dissapointing result. I wonder if this result change if I used bigger dataset or use EMR from AWS....  
   
