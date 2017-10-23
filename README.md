@@ -56,17 +56,29 @@ With these change, I can make train-test split after running my data cleaning pr
   
 ## RESULTS:
 ### Computation time:
+**Video Game Product reviews:**    
 - Ran the original ver. in my laptop (MacBookPro 2015)  
 - Ran the pyspark ver. with 4 CPU in my laptop  
-
-Video Game Product reviews:  
-(data cleaning reduce samples to about 4300 samples)  
-
+(data cleaning reduce samples to about 4,300 samples)  
+  
 |               |   Original ver.   |   Pyspark ver.   |
 | ------------- |:-----------------:| ----------------:|
 | data cleaning |    00:06:12:38    |   00:10:39:36    |
 |   TFIDF+NMF   |    00:00:00:00    |   00:00:00:00    |
 | Random Forest |    00:00:00:00    |   00:00:00:00    |
+|    Total      |    00:06:12:38    |   00:00:00:00    |
+
+**Homeandkitchen Product reviews:**
+- Ran the original ver. with AWS EC2 instance (m4.2xlarge)
+- Ran the pyspark ver. with AWS EMR instances (8 nodes)  
+(data cleaning reduce samples to about 81,775 samples)  
+
+|               |   Original ver.   |   Pyspark ver.   |
+| ------------- |:-----------------:| ----------------:|
+| data cleaning |    00:12:58:33    |   00:00:00:00    |
+|   TFIDF+NMF   |    00:28:28:17    |   00:00:00:00    |
+| Random Forest |    00:03:49:10    |   00:00:00:00    |
+|    Total      |    00:45:15:60    |   00:00:00:00    |
 
 
 ## CONCLUSION:
