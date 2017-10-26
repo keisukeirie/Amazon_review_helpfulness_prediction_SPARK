@@ -58,7 +58,7 @@ With these change, I can make train-test split after running my data cleaning pr
 ### Computation time:
 **Video Game Product reviews:**    
 - Ran the original ver. in my laptop (MacBookPro 2015)  
-- Ran the pyspark with 4 CPU in my laptop and with 10 R3.xlarge EMR instances.  
+- Ran the pyspark with 4 CPU in my laptop and with 9 R3.xlarge EMR instances (1master,8nodes).  
 (data cleaning reduce samples to about 4,300 samples) 
 training: 2800 samples, test: 636 samples   
   
@@ -104,7 +104,7 @@ So I decided to use AWS EMR instances instead.
 
 **Homeandkitchen Product reviews:**
 - Ran the original ver. with AWS EC2 instance (m4.2xlarge)
-- Ran the pyspark ver. with AWS EMR instances (8 nodes)  
+- Ran the pyspark ver. with AWS EMR instances (1master, 8nodes)  
 (data cleaning reduce samples to about 81,775 samples)  
 
 |               |   Original ver.   |   Pyspark ver.   |
