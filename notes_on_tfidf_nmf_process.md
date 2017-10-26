@@ -72,8 +72,9 @@ Item = columns/features, column number
 Rating = value (in our case TF-IDF term)  
   
 For example, the rating matrix can look like this.  
+  
 |   USER ID   |   ITEM ID   |   Rating   |  
-| ----------- |:-----------:| ----------:|  
+|:----------- |:-----------:| ----------:|  
 |      0      |      1      |    1.03    |    
 |      0      |      4      |    2.54    |  
 |      0      |      9      |    9.02    |  
