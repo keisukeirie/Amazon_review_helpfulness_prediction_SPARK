@@ -58,19 +58,20 @@ With these change, I can make train-test split after running my data cleaning pr
 ### Computation time:
 **Video Game Product reviews:**    
 - Ran the original ver. in my laptop (MacBookPro 2015)  
-- Ran the pyspark ver. with 4 CPU in my laptop  
+- Ran the pyspark with 4 CPU in my laptop and with 10 R3.xlarge EMR instances.  
 (data cleaning reduce samples to about 4,300 samples) 
 training: 2800 samples, test: 636 samples   
   
-|               |   Original ver.   |   Pyspark ver.   |
-| ------------- |:-----------------:| ----------------:|
-| data cleaning |    00:06:12:38    |   00:10:39:36    |
-|   TFIDF+NMF   |    00:04:46:44    |   00:00:00:00    |
-| Random Forest |    00:00:22:00    |   00:00:00:00    |
-|    Total      |    00:11:20:82    |   00:00:00:00    |
-
+|               |   Original ver.   |  Pyspark laptop  |   Pyspark EMR   |
+| ------------- |:-----------------:|:----------------:| ---------------:|
+| data cleaning |    00:06:12:38    |   00:10:39:36    |   00:00:00:00   |
+|   TFIDF+NMF   |    00:04:46:44    |   Memory prob.   |   00:00:00:00   |
+| Random Forest |    00:00:22:00    |   00:00:00:00    |   00:00:00:00   |
+|    Total      |    00:11:20:82    |   00:00:00:00    |   00:00:00:00   |
+  
+  
 #### Original Ver result:
-
+  
  **TOP10 Important Features**   
 enjoy : 0.907305699071%  
 percent_GROUP_4 : 0.960251319721%  
@@ -83,7 +84,6 @@ rank_values : 3.45245920816%
 text_length : 6.00004820027%  
 overall : 8.50613117299%  
 
-
  |                      | NOT HELPFUL TRUE | HIGHLY HELPFUL TRUE |
  | -------------------- |:----------------:| -------------------:|
  |   NOT HELPFUL PRED   |      205.0       |         50.0        |
@@ -91,7 +91,16 @@ overall : 8.50613117299%
 
 LOW prediction rate: 84.71%
 HIGH prediction rate: 87.31%
+  
+#### Pyspark Ver with laptop result:
+Used 4CPU from my laptop (2015 MBP) to do the same process in pyspark.  
+The data cleaning process was much slower than running it without spark.  
+TFIDF calculation worked just fine. However, when I set up a rating matrix for NMF,  
+I started to have a memory issue. the sparse matrix containing TFIDF terms contained about 70000 samples  
+and I started to see more error message as I prepare a rating matrix for NMF collaborative filtering.  
+(in fact, it did not run ALS with my rating matrix).  
 
+So I decided to use AWS EMR instances instead.  
 
 **Homeandkitchen Product reviews:**
 - Ran the original ver. with AWS EC2 instance (m4.2xlarge)
