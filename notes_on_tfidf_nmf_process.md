@@ -115,3 +115,23 @@ test = hc.createDataFrame(rdd_zipped)
 test = test.select(col('_ 1').alias("USER_ID").cast(IntegerType()), col('_ 2').alias("tfidf_index").cast(IntegerType()), col('_ 3').alias("tfidf_term"))  
 test = test.withColumn("tfidf_ROUND", pys_fun.format_number(test.tfidf_term, 3).cast(FloatType()))  
 test = test.drop('tfidf_term')  
+
+### Issues with NMF  
+So I have my TF-IDF matrix in the form of rating matrix and it stores about 600,000 datapoints.   
+My TF-IDF matrix stores video game reviews (4200 reviews) * tf-idf top 10000 words.  
+Although it is a sparse matrix, it is pretty large to store in my memory.
+So as you can guess, the problem I am facing is that  my laptop can not handle this matrix in it's memory.  
+ 
+Since I don't want to stop coding here, I am going to use top 10 words for each low instead
+and observed NMF results....  
+
+Performance of ALS based on the # of data stored in my tfidf matrix
+  
+| # of reviews | # of tfidf terms per review | # of non-zero values in rating matrix | ALS worked? (y/n) |  
+|:------------ |:---------------------------:| :------------------------------------:| -----------------:|  
+|     4209     |             10000           |                 605,816               |        NO         |  
+|     4209     |              100            |                 253,499               |        NO         |  
+|     4209     |               10            |                  40,512               |        NO         |  
+|     2000     |               10            |                   9,704               |        YES        |  
+
+  
