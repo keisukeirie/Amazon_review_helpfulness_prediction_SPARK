@@ -22,14 +22,17 @@ So I want to put notes on my repo just so that it can maybe help someone who is 
   
 ### Note file:
 notes_on_data_cleaning_process.md  
-  - will have notes on the first process of data cleaning.  
+  - will have notes on the first process of data cleaning. 
+  
 notes_on_tfidf_nmf_process.md  
-  - will have notes on the tfidf, nmf, nlp related functions.
-notes_on_ml.md (in the future)
-  - will have notes on the ML library used in this project.
-notes_on_EMR.md (in the future)
-  - will have notes on the EMR. How to set up EMR.
-
+  - will have notes on the tfidf, nmf, nlp related functions.  
+  
+notes_on_ml.md (in the future)  
+  - will have notes on the ML library used in this project.  
+  
+notes_on_EMR.md (in the future)  
+  - will have notes on the EMR. How to set up EMR.  
+  
 ## CHANGE MADE FROM THE PREVIOUS VERSION:
 
 #### data samples with no Rank_Values and no Price:
