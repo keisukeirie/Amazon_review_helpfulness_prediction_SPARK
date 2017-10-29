@@ -35,8 +35,6 @@ notes_on_EMR.md (in the future)
   
 ## CHANGE MADE FROM THE PREVIOUS VERSION:
 
-#### data samples with no Rank_Values and no Price:
-
 #### Rank_Value imputation:
 For the Rank_Value feature, null values were replaced with average value.  
 Because the Rank_Value feature represents the rank of products, I figure it will not be realistic to impute it with the average value.  
@@ -55,7 +53,15 @@ What I end up doing was that I replaced pruce values into categorical values.
 5. above300  
 6. unknown (nulls)  
   
-With these change, I can make train-test split after running my data cleaning process.  
+With these 2 changes, I can make train-test split after running my data cleaning process.  
+  
+#### TF-IDF terms as features:
+In the previous model, I had TF-IDF matrix with top 500 words as features (so 500 features).  
+Addition to these features, I had NMF results calculated from TF-IDF matrix with top 10000 words as fetures (8 features).  
+My question regarding this structure:
+*Are these 500 TF-IDF terms causing multicollinearity and influence my feature importance of my RF model?*  
+Since I have both TF-IDF and NMF features, there should be some correlation between these features.  
+To be safe and simple, I'm removing these TF-IDF terms and work with NMF hidden layers only. (instead of 8, lets try 15).  
   
 ## RESULTS:
 ### Computation time:
