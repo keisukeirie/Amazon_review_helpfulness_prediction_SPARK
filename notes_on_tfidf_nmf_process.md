@@ -122,7 +122,7 @@ My TF-IDF matrix stores video game reviews (4200 reviews) * tf-idf top 10000 wor
 Although it is a sparse matrix, it is pretty large to store in my memory.
 So as you can guess, the problem I am facing is that  my laptop can not handle this matrix in it's memory.  
  
-Since I don't want to stop coding here, I am going to use top 10 words for each low instead
+Since I don't want to stop coding here, I am going to use top 10 words for each row instead
 and observed NMF results....  
 
 Performance of ALS based on the # of data stored in my tfidf matrix
@@ -132,6 +132,8 @@ Performance of ALS based on the # of data stored in my tfidf matrix
 |     4209     |             10000           |                 605,816               |        NO         |  
 |     4209     |              100            |                 253,499               |        NO         |  
 |     4209     |               10            |                  40,512               |        NO         |  
-|     2000     |               10            |                   9,704               |        YES        |  
-
+|     1000     |               10            |                   9,704               |        YES        |  
   
+Once I ran model = ALS.train(parameters), I used model.userFeatures().  
+userFeatures() will give me values which represent how much each data sample relate to different NMF clusters.  
+
