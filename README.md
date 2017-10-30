@@ -1,6 +1,6 @@
 # Amazon_review_helpfulness_prediction PYSPARK EDITION
 this is my repository for the Amazon Review Helpfulness prediction model project using Pyspark for ML and data cleaning.  
-_last updated: 10/26/2017_  
+_last updated: 10/29/2017_  
   
 ## OBJECTIVE:
 The motivation here is to repeat/improve what I did for the Amazon review helpfulness prediction all in pyspark.  
