@@ -129,11 +129,19 @@ Performance of ALS based on the # of data stored in my tfidf matrix
   
 | # of reviews | # of tfidf terms per review | # of non-zero values in rating matrix | ALS worked? (y/n) |  
 |:------------ |:---------------------------:| :------------------------------------:| -----------------:|  
-|     4209     |             10000           |                 605,816               |        NO         |  
-|     4209     |              100            |                 253,499               |        NO         |  
-|     4209     |               10            |                  40,512               |        NO         |  
-|     1000     |               10            |                   9,704               |        YES        |  
+|     4234     |             10000           |                 605,816               |         N         |  
+|     4234     |              100            |                 253,499               |         Y         |  
+|     4234     |               10            |                  40,512               |         Y         |   
   
 Once I ran model = ALS.train(parameters), I used model.userFeatures().  
 userFeatures() will give me values which represent how much each data sample relate to different NMF clusters.  
 
+**UPDATE NOTES**:  
+For some reason, when I load data from parquet formated file, I was able to run ALS.  
+There have to be some problems with using dataframe from CSV formatted files.  
+
+Other thing I notice is that there seems to be 25 problematic samples in my data.  
+Whne I worked with CSV formatted file, whenever I load my csv file, it created 25 null reviewText samples in my data.  
+When I worked with parquet formatted file, it removed 25 data samples when it runs NMF.  
+So I'm guessing that there is some characters or some texts that csv file or NMF can not handle in my dataset.  
+  
