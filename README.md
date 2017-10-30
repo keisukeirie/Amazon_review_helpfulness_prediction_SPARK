@@ -1,6 +1,6 @@
 # Amazon_review_helpfulness_prediction PYSPARK EDITION
 this is my repository for the Amazon Review Helpfulness prediction model project using Pyspark for ML and data cleaning.  
-_last updated: 10/26/2017_  
+_last updated: 10/29/2017_  
   
 ## OBJECTIVE:
 The motivation here is to repeat/improve what I did for the Amazon review helpfulness prediction all in pyspark.  
@@ -22,17 +22,18 @@ So I want to put notes on my repo just so that it can maybe help someone who is 
   
 ### Note file:
 notes_on_data_cleaning_process.md  
-  - will have notes on the first process of data cleaning.  
+  - will have notes on the first process of data cleaning. 
+  
 notes_on_tfidf_nmf_process.md  
-  - will have notes on the tfidf, nmf, nlp related functions.
-notes_on_ml.md (in the future)
-  - will have notes on the ML library used in this project.
-notes_on_EMR.md (in the future)
-  - will have notes on the EMR. How to set up EMR.
-
+  - will have notes on the tfidf, nmf, nlp related functions.  
+  
+notes_on_ml.md (in the future)  
+  - will have notes on the ML library used in this project.  
+  
+notes_on_EMR.md (in the future)  
+  - will have notes on the EMR. How to set up EMR.  
+  
 ## CHANGE MADE FROM THE PREVIOUS VERSION:
-
-#### data samples with no Rank_Values and no Price:
 
 #### Rank_Value imputation:
 For the Rank_Value feature, null values were replaced with average value.  
@@ -52,7 +53,15 @@ What I end up doing was that I replaced pruce values into categorical values.
 5. above300  
 6. unknown (nulls)  
   
-With these change, I can make train-test split after running my data cleaning process.  
+With these 2 changes, I can make train-test split after running my data cleaning process.  
+  
+#### TF-IDF terms as features:
+In the previous model, I had TF-IDF matrix with top 500 words as features (so 500 features).  
+Addition to these features, I had NMF results calculated from TF-IDF matrix with top 10000 words as fetures (8 features).  
+My question regarding this structure:
+*Are these 500 TF-IDF terms causing multicollinearity and influence my feature importance of my RF model?*  
+Since I have both TF-IDF and NMF features, there should be some correlation between these features.  
+To be safe and simple, I'm removing these TF-IDF terms and work with NMF hidden layers only. (instead of 8, lets try 15).  
   
 ## RESULTS:
 ### Computation time:

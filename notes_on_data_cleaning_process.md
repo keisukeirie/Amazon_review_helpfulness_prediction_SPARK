@@ -34,3 +34,7 @@ the pyspark ver. around **10 minutes**.
   
 a bit dissapointing result. I wonder if this result change if I used bigger dataset or use EMR from AWS....  
   
+*updates 10/27/2017*  
+I find out that working with my laptop CPU is a just terrible idea.  
+unlike working with python, numpy and pandas, running spark with a laptop suffers way more memory issues.  
+So I am guessing that if I use EC2 instances as nodes, it will speed up the process much faster.  
